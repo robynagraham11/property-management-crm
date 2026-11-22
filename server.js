@@ -56,10 +56,49 @@ function writeData(data) {
   fs.writeFileSync(dataFile, JSON.stringify(data, null, 2));
 }
 
-function send(res, status, body, type = "application/json") {
+const intakeOrigins = new Set(["https://robyngraham.ca", "https://www.robyngraham.ca", "http://localhost:3000", "http://127.0.0.1:3000"]);
+
+function corsHeaders(req) {
+  const origin = req.headers.origin;
+  if (!origin || !intakeOrigins.has(origin)) return {};
+  return { "Access-Control-Allow-Origin": origin, "Access-Control-Allow-Methods": "POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type" };
+}
+
+function send(res, status, body, type = "application/json", extraHeaders = {}) {
   const contentType = type.startsWith("text/") || type === "application/json" || type === "application/javascript" ? `${type}; charset=utf-8` : type;
-  res.writeHead(status, { "Content-Type": contentType });
+  res.writeHead(status, { "Content-Type": contentType, ...extraHeaders });
   res.end(type === "application/json" ? JSON.stringify(body) : body);
+}
+
+function intakeIdentity(submission) {
+  const first = submission.first_name || submission.firstName || "";
+  const last = submission.last_name || submission.lastName || "";
+  const ownerName = (submission.ownerName || submission.name || `${first} ${last}`).trim();
+  const email = submission.email || submission.email_address || "";
+  const phone = submission.phone || submission.phone_number || "";
+  const propertyAddress = submission.propertyAddress
+    || submission.rental_property_address
+    || submission.rentalPropertyAddress
+    || [submission.rental_address_line_1, submission.rental_address_line_2].filter(Boolean).join(", ")
+    || submission.address_line_1
+    || "";
+  return { ownerName, email, phone, propertyAddress };
+}
+
+function leadSource(submission) {
+  if (submission.fluentFormId === 5 || submission.formSource === "placement-intake-rwr") return "WordPress placement intake (Form 5)";
+  if (submission.fluentFormId === 4 || submission.formSource === "owner-intake-rwr") return "WordPress owner intake (Form 4)";
+  if (submission.formSource) return submission.formSource;
+  return "Owner intake form";
+}
+
+function intakeNotes(submission, identity) {
+  if (submission.notes) return submission.notes;
+  const skip = new Set(["ownerName", "first_name", "lastName", "firstName", "last_name", "email", "phone", "propertyAddress"]);
+  const lines = Object.entries(submission)
+    .filter(([key, value]) => !skip.has(key) && value != null && String(value).trim() !== "")
+  .map(([key, value]) => `${key}: ${value}`);
+  return [`Property: ${identity.propertyAddress || "See submission"}`, ...lines.slice(0, 24)].join("\n");
 }
 
 function body(req) {
@@ -100,18 +139,34 @@ const server = http.createServer(async (req, res) => {
 
   if (parts[0] !== "api") return serveFile(res, url.pathname);
   if (parts[1] === "intake") {
-    if (req.method !== "POST") return send(res, 405, { error: "Method not allowed" });
+    const cors = corsHeaders(req);
+    if (req.method === "OPTIONS") return send(res, 204, "", "text/plain", cors);
+    if (req.method !== "POST") return send(res, 405, { error: "Method not allowed" }, "application/json", cors);
     try {
       const submission = await body(req);
-      if (!submission.ownerName || !submission.email || !submission.propertyAddress) return send(res, 400, { error: "Please provide your name, email, and property address." });
+      const identity = intakeIdentity(submission);
+      if (!identity.ownerName || !identity.email) return send(res, 400, { error: "Please provide a name and email." }, "application/json", cors);
       const data = readData();
-      const intake = { id: randomUUID(), createdAt: new Date().toISOString(), ...submission };
-      const lead = { id: randomUUID(), createdAt: intake.createdAt, name: submission.ownerName, contactName: submission.ownerName, email: submission.email, phone: submission.phone || "", propertyType: submission.propertyType || "", source: "Owner intake form", stage: "New", nextFollowUp: "", intakeId: intake.id, notes: `Property: ${submission.propertyAddress}${submission.city ? `, ${submission.city}` : ""}\nTimeline: ${submission.timeline || "Not provided"}\nCurrent tenant: ${submission.occupancy || "Not provided"}\nRequested help: ${submission.services || "Not provided"}\nNotes: ${submission.notes || ""}` };
+      const intake = { id: randomUUID(), createdAt: new Date().toISOString(), ...submission, ...identity };
+      const lead = {
+        id: randomUUID(),
+        createdAt: intake.createdAt,
+        name: identity.ownerName,
+        contactName: identity.ownerName,
+        email: identity.email,
+        phone: identity.phone || "",
+        propertyType: submission.propertyType || submission.property_type || "",
+        source: leadSource(submission),
+        stage: "New",
+        nextFollowUp: "",
+        intakeId: intake.id,
+        notes: intakeNotes(submission, identity)
+      };
       data.intakeSubmissions.push(intake);
       data.leads.push(lead);
       writeData(data);
-      return send(res, 201, { message: "Thanks. Your request has been received.", leadId: lead.id });
-    } catch (error) { return send(res, 400, { error: error.message }); }
+      return send(res, 201, { message: "Thanks. Your request has been received.", leadId: lead.id }, "application/json", cors);
+    } catch (error) { return send(res, 400, { error: error.message }, "application/json", cors); }
   }
   const collection = parts[1];
   if (!collections.includes(collection)) return send(res, 404, { error: "Unknown collection" });

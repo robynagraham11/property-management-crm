@@ -7,12 +7,6 @@
   },
   "scripts": {
     "start": "node server.js",
-    "test": "node --test",
-    "fb:login": "node scripts/fb-groups.js login",
-    "fb:groups": "node scripts/fb-groups.js groups",
-    "fb:scan": "node scripts/fb-groups.js scan"
-  },
-  "dependencies": {
-    "playwright": "^1.64.1"
+    "test": "node --test"
   }
 }
