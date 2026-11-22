@@ -1,0 +1,182 @@
+{
+  "brand": {
+    "tagline": "Own it. Don't babysit it.",
+    "lanes": ["FOR OWNERS", "FOR RENTERS"],
+    "colors": { "ink": "#0d0d0d", "teal": "#00adc0", "white": "#ffffff" },
+    "fonts": { "headlineSocial": "Montserrat 800", "headlinePrint": "Playfair Display", "body": "Montserrat" },
+    "contact": "778 926 3481 · robyn@rentwithrobyn.ca · robyngraham.ca · @rentwithrobyn",
+    "brokerage": "Stonehaus Realty Corp.",
+    "ownerGuide": "/guides/landlord-guide.pdf",
+    "reference": "/branding/"
+  },
+  "categories": [
+    {
+      "id": "owner",
+      "title": "Owner marketing",
+      "items": [
+        {
+          "title": "The Property Owner's Guide",
+          "stamp": "use",
+          "summary": "4-page leave-behind from your New Branding kit. Use after a rental review or with every new owner lead.",
+          "file": "/guides/landlord-guide.pdf",
+          "source": "branded",
+          "when": "Discovery call, rental analysis follow-up, onboarding packet"
+        }
+      ]
+    },
+    {
+      "id": "official",
+      "title": "Official forms — download fresh",
+      "items": [
+        {
+          "title": "RTB-1 Residential Tenancy Agreement",
+          "stamp": "use",
+          "version": "RTB portal lists July 2026 — verify before each file",
+          "summary": "Mandatory tenancy agreement. Replaces the 2019 copy in your old Dropbox folder.",
+          "file": "/forms/current/rtb-1-residential-tenancy-agreement.pdf",
+          "officialUrl": "https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies/calculators-and-resources/tenancy-forms",
+          "when": "Approved applicant — before move-in"
+        },
+        {
+          "title": "RTB-27 Condition Inspection Report",
+          "stamp": "use",
+          "version": "2024/11",
+          "summary": "Move-in and move-out condition report. Replaces RTO-27 (2011) from Dropbox.",
+          "file": "/forms/current/rtb-27-condition-inspection-report.pdf",
+          "officialUrl": "https://www2.gov.bc.ca/assets/gov/housing-and-tenancy/residential-tenancies/forms/rtb27.pdf",
+          "when": "Move-in within 7 days of possession; move-out at end of tenancy"
+        },
+        {
+          "title": "BCFSA Disclosure of Representation in Trading Services",
+          "stamp": "use",
+          "version": "September 2019 (current approved version per BCFSA RESA 23-003)",
+          "summary": "For owners and clients. Your September 2019 PDF matches the current mandatory version — still download from BCFSA periodically.",
+          "file": "/forms/current/bcfsa-disclosure-of-representation.pdf",
+          "officialUrl": "https://www.bcfsa.ca/industry-resources/real-estate-professional-resources/knowledge-base/agency-and-disclosure-forms",
+          "when": "Before providing trading services to an owner"
+        },
+        {
+          "title": "BCFSA Disclosure for Residential Tenancies",
+          "stamp": "use",
+          "version": "September 2019",
+          "summary": "Combined disclosure for unrepresented tenants (prospects). Use instead of the old generic DORTS alone on rentals.",
+          "file": "/forms/current/bcfsa-disclosure-for-residential-tenancies.pdf",
+          "officialUrl": "https://www.bcfsa.ca/media/720/download",
+          "when": "Before screening / application with each unrepresented tenant prospect"
+        },
+        {
+          "title": "BCFSA Payments and Benefits Disclosure — Rental Property Owner",
+          "stamp": "use",
+          "summary": "Give with owner service agreements. Write \"None anticipated\" when applicable.",
+          "file": "/forms/current/bcfsa-payments-and-benefits-rental-owner.pdf",
+          "officialUrl": "https://www.bcfsa.ca/media/724/download",
+          "when": "Owner onboarding, with management or placement agreement"
+        }
+      ]
+    },
+    {
+      "id": "rebuilt",
+      "title": "Rent with Robyn — rebuilt in toolkit",
+      "items": [
+        {
+          "title": "Property Management Agreement",
+          "stamp": "use",
+          "summary": "Stonehaus brokerage agreement with three service models. Replaces LANG/SH legacy PDFs.",
+          "file": "/toolkit/01-property-management-agreement.md",
+          "docx": "/toolkit/01-property-management-agreement.docx",
+          "when": "Full management appointment"
+        },
+        {
+          "title": "Tenant Placement Service Agreement",
+          "stamp": "use",
+          "summary": "Placement-only scope and fee.",
+          "file": "/toolkit/02-tenant-placement-agreement.md",
+          "docx": "/toolkit/02-tenant-placement-agreement.docx",
+          "when": "Leasing / placement only"
+        },
+        {
+          "title": "Rental Application",
+          "stamp": "use",
+          "summary": "No application fee. No SIN field. Replaces the North Vancouver legacy application.",
+          "file": "/toolkit/06-tenant-rental-application.md",
+          "docx": "/toolkit/06-tenant-rental-application.docx",
+          "when": "Each adult applicant"
+        },
+        {
+          "title": "Screening Consent (PIPA)",
+          "stamp": "use",
+          "file": "/toolkit/07-screening-consent.md",
+          "docx": "/toolkit/07-screening-consent.docx",
+          "when": "Before any reference, employment, or credit check"
+        },
+        {
+          "title": "Tenant Approval Record",
+          "stamp": "use",
+          "file": "/toolkit/08-tenant-approval-record.md",
+          "docx": "/toolkit/08-tenant-approval-record.docx",
+          "when": "Landlord chooses applicant — before RTB-1"
+        },
+        {
+          "title": "Placement file checklist",
+          "stamp": "use",
+          "file": "/toolkit/13-placement-file-checklist.md",
+          "docx": "/toolkit/13-placement-file-checklist.docx",
+          "when": "Internal run sheet — replaces transaction record chaos"
+        },
+        {
+          "title": "Transaction Record Sheet",
+          "stamp": "replace",
+          "summary": "Legacy Stonehaus internal sheet. Use the placement checklist + desk placement file instead.",
+          "file": "/forms/source/transaction-record-sheet.pdf",
+          "when": "Archive only"
+        }
+      ]
+    },
+    {
+      "id": "brokerage",
+      "title": "Brokerage forms — confirm with managing broker",
+      "items": [
+        {
+          "title": "BCREA Privacy Notice and Consent (BC1002)",
+          "stamp": "replace",
+          "summary": "Your July 2019 PNC is outdated. Use BC1002 (rev. November 2024) from your brokerage — do not retype.",
+          "officialUrl": "https://www.bcrea.bc.ca/",
+          "when": "Before collecting owner or applicant personal information"
+        },
+        {
+          "title": "Tenancy addendum (legacy Stonehaus)",
+          "stamp": "replace",
+          "summary": "Old blanket addendum. Rebuild additional terms per RTA with lawyer review; do not reuse early-termination damage fees without legal sign-off.",
+          "file": "/forms/source/tenant-rental-agreement-addendum.docx",
+          "when": "Draft new addendum from RTB-1 additional terms only"
+        }
+      ]
+    },
+    {
+      "id": "archive",
+      "title": "Archived Dropbox copies",
+      "items": [
+        {
+          "title": "2011 Condition Inspection (RTO-27)",
+          "stamp": "stop",
+          "file": "/forms/source/condition-inspection-rtb-27-2011.pdf"
+        },
+        {
+          "title": "2019 RTB-1",
+          "stamp": "stop",
+          "file": "/forms/source/residential-tenancy-agreement-rtb-1-2019.pdf"
+        },
+        {
+          "title": "Legacy rental application (SIN field)",
+          "stamp": "stop",
+          "file": "/forms/source/rental-application-north-van.pdf"
+        },
+        {
+          "title": "LANG / SH property management agreements",
+          "stamp": "stop",
+          "file": "/forms/source/lang-property-management-agreement.pdf"
+        }
+      ]
+    }
+  ]
+}

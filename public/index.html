@@ -3,37 +3,61 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Robyn Graham Property Management</title>
+  <title>Robyn Graham | Property Management Desk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
-  <link rel="stylesheet" href="/brand.css">
 </head>
 <body>
-  <aside>
-    <a class="brand" href="#dashboard"><img src="/logo.png" alt="Robyn Graham Property Management"></a>
+  <aside class="sidebar">
+    <a class="wordmark" href="#home" aria-label="Robyn Graham Property Management">
+      <span>ROBYN GRAHAM</span>
+      <small>REAL ESTATE &amp; PROPERTY MANAGEMENT</small>
+    </a>
     <nav>
-      <button class="active" data-view="dashboard">Overview</button>
-      <button data-view="leads">Lead pipeline</button>
-      <button data-view="properties">Properties & units</button>
-      <button data-view="forms">Forms & files</button>
-      <button data-view="operations">Operations</button>
-      <button data-view="compliance">Compliance</button>
+      <button class="active" data-view="home"><b>01</b> Command centre</button>
+      <button data-view="leads"><b>02</b> Owner leads</button>
+      <button data-view="portfolio"><b>03</b> Portfolio</button>
+      <button data-view="leasing"><b>04</b> Leasing &amp; tenancies</button>
+      <button data-view="screening"><b>05</b> Applicant screening</button>
+      <button data-view="forms"><b>06</b> Forms library</button>
+      <button data-view="tasks"><b>07</b> Tasks &amp; maintenance</button>
+      <a class="portal-link" href="/portal.html" target="_blank" rel="noreferrer" style="display:block;margin-top:10px;border:1px solid #34383c;border-radius:6px;padding:10px 12px;color:#fff;font:600 12.5px Montserrat,Arial,sans-serif;text-decoration:none;letter-spacing:.04em">Forms &amp; documents portal ↗</a>
+      <a class="portal-link" href="/branding/" target="_blank" rel="noreferrer" style="display:block;margin-top:8px;border:1px solid #34383c;border-radius:6px;padding:10px 12px;color:var(--teal);font:600 12.5px Montserrat,Arial,sans-serif;text-decoration:none;letter-spacing:.04em">Brand reference grid ↗</a>
     </nav>
-    <p class="side-note">Professional. Reliable. Personal.<br><br>Residential<br>Strata<br>Commercial</p>
+    <div class="sidebar-foot"><p>LANGLEY &amp; THE<br>FRASER VALLEY</p><a class="desk-mail" href="mailto:robyn@rentwithrobyn.ca">robyn@rentwithrobyn.ca</a><strong>Own it.<br>Don’t babysit it.</strong></div>
   </aside>
   <main>
-    <header><div><p class="eyebrow" id="today"></p><h1 id="title">Your business at a glance</h1></div><button class="primary" id="newButton">+ Add lead</button></header>
-    <section id="dashboard" class="view active">
-      <div class="metrics" id="metrics"></div>
-      <section class="panel"><div class="section-head"><div><p class="eyebrow">NEXT ACTIONS</p><h2>Keep momentum</h2></div><button class="text-button" data-view="leads">View all leads</button></div><div id="actions" class="action-list"></div></section>
-      <section class="panel guidance"><p class="eyebrow">NEW BUSINESS CHECKLIST</p><h2>Move a prospect to a managed client</h2><ol><li>Qualify the building, decision maker, scope, and desired transition date.</li><li>Log every call, document, and deadline against the lead.</li><li>Create the property, contacts, units, and management tasks once appointed.</li></ol></section>
+    <header>
+      <div><p class="kicker" id="today"></p><h1 id="pageTitle">Keep the right things moving.</h1></div>
+      <div class="header-actions"><a class="quiet mail-link" href="mailto:robyn@rentwithrobyn.ca">robyn@rentwithrobyn.ca</a><button class="quiet" id="quickTask">+ Task</button><button class="cta" id="quickLead">+ Owner lead</button></div>
+    </header>
+
+    <section class="view active" id="home">
+      <div class="hero-note"><p class="kicker">PROPERTY MANAGEMENT DESK</p><p>Clear ownership. Fast follow-up. Nothing gets lost.</p></div>
+      <div class="stats" id="stats"></div>
+      <div class="home-grid">
+        <section class="panel priorities"><div class="panel-title"><div><p class="kicker">NEXT UP</p><h2>Your priorities</h2></div><button class="link" data-view="tasks">See all</button></div><div id="priorityList"></div></section>
+        <section class="panel pipeline"><div class="panel-title"><div><p class="kicker">OWNER PIPELINE</p><h2>Business in motion</h2></div><button class="link" data-view="leads">Manage leads</button></div><div id="pipelineSummary"></div></section>
+      </div>
+      <div id="ownerGuideStrip" style="margin-bottom:24px"></div>
+      <section class="panel process"><div><p class="kicker">THE ROBYN WAY</p><h2>From first call to a well-run rental.</h2></div><div class="process-steps"><p><b>01</b> Free rental review</p><p><b>02</b> Agreement &amp; onboarding</p><p><b>03</b> Market, screen &amp; place</p><p><b>04</b> Ongoing management</p></div></section>
     </section>
-    <section id="leads" class="view"><div class="toolbar"><div class="filters" id="leadFilters"></div><button class="primary" id="addLead">+ Add lead</button></div><div id="leadList" class="card-list"></div></section>
-    <section id="properties" class="view"><div class="empty"><p class="eyebrow">PORTFOLIO</p><h2>Properties and units</h2><p>Create a property when a lead becomes a client. Residential, strata, and commercial records use the same core profile, with type-specific notes retained on the record.</p><button class="primary" id="addProperty">+ Add property</button><div id="propertyList" class="card-list"></div></div></section>
-    <section id="forms" class="view"><section class="panel"><div class="section-head"><div><p class="eyebrow">FORMS AND FILES</p><h2>Form register</h2></div><button class="primary" id="addForm">+ Add form record</button></div><p>Record the form version, who it relates to, its status, and where the completed file is stored. Use the live official source below instead of keeping stale blank forms in the CRM.</p><div id="formList" class="card-list"></div></section><section class="panel resource-panel"><p class="eyebrow">START A FORM</p><h2>Current source and workflow</h2><a href="https://www.bcfsa.ca/industry-resources/real-estate-professional-resources/knowledge-base/practice-resources/service-agreements" target="_blank" rel="noreferrer">BCFSA service agreements: required content checklist</a><a href="https://www.bcfsa.ca/industry-resources/real-estate-professional-resources/knowledge-base/practice-resources/checklist-additional-content-be-strata-management-service-agreement" target="_blank" rel="noreferrer">BCFSA strata management service-agreement additions</a><a href="https://www.bcfsa.ca/industry-resources/real-estate-professional-resources/knowledge-base/practice-resources/listing-information-checklist" target="_blank" rel="noreferrer">BCFSA listing information checklist</a><a href="https://www.bcfsa.ca/node/280" target="_blank" rel="noreferrer">BCFSA agency and disclosure forms</a><a href="https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies/calculators-and-resources" target="_blank" rel="noreferrer">Residential Tenancy Branch forms and resources</a><div class="form-guides"><div><strong>All service agreements</strong><span>Confirm client and brokerage, property, effective date/duration, services, remuneration, and privacy content.</span></div><div><strong>Strata management</strong><span>Also confirm funds, transfer authority, spending/contract authority, accounting statements, records, and information handling.</span></div><div><strong>New residential tenancy</strong><span>Use current RTB agreement and required supporting documents.</span></div></div><p class="fine">This is a preparation checklist based on BCFSA practice resources, not a substitute for a brokerage-approved agreement or legal advice. Open the live official source before using a form.</p></section></section>
-    <section id="operations" class="view"><div class="empty"><p class="eyebrow">DAY-TO-DAY</p><h2>Operational control centre</h2><p>Track tasks, work orders, leases, and documents through the API now. The dashboard will expand as your portfolio comes online.</p><div class="operational-grid"><div><strong>Tasks</strong><span id="taskCount">0 open</span></div><div><strong>Work orders</strong><span id="workOrderCount">0 open</span></div><div><strong>Leases</strong><span id="leaseCount">0 active</span></div><div><strong>Documents</strong><span id="documentCount">0 stored</span></div></div></div></section>
-    <section id="compliance" class="view"><section class="panel"><div class="section-head"><div><p class="eyebrow">BC PRACTICE</p><h2>Compliance register</h2></div><button class="primary" id="addCompliance">+ Add review item</button></div><p>Use this to assign review dates and preserve evidence. Starter items are prompts only: confirm every obligation and deadline with your managing broker and appropriate advisor.</p><div id="complianceList" class="card-list"></div></section><section class="panel resource-panel"><p class="eyebrow">LIVE OFFICIAL SOURCES</p><h2>Forms and regulatory resources</h2><a href="https://www.bcfsa.ca/industry-resources/real-estate-professional-resources/knowledge-base" target="_blank" rel="noreferrer">BCFSA Knowledge Base and regulatory resources</a><a href="https://www.bcfsa.ca/node/280" target="_blank" rel="noreferrer">BCFSA agency and disclosure forms</a><a href="https://www.bcfsa.ca/industry-resources/real-estate-professional-resources/education-and-licensing/licensing-forms" target="_blank" rel="noreferrer">BCFSA licensing forms and IRIS resources</a><a href="https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies/calculators-and-resources" target="_blank" rel="noreferrer">Residential Tenancy Branch forms and resources</a><a href="https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/98043_01" target="_blank" rel="noreferrer">Strata Property Act on BC Laws</a><p class="fine">Links are provided for review, not as a declaration that a form applies to a specific transaction or management relationship. Always use the current official version.</p></section></section>
+
+    <section class="view" id="leads"><div class="view-head"><div><p class="kicker">OWNER LEADS</p><h2>Start with the right conversation.</h2><p>Track rental-analysis requests, management inquiries and owner follow-up.</p></div><button class="cta" data-create="leads">+ Add owner lead</button></div><div class="filter-row" id="leadFilters"></div><div class="record-list" id="leadList"></div></section>
+
+    <section class="view" id="portfolio"><div class="view-head"><div><p class="kicker">PORTFOLIO</p><h2>Homes under management.</h2><p>Each property carries its owner, scope and operational history.</p></div><button class="cta" data-create="properties">+ Add property</button></div><div class="record-list" id="propertyList"></div></section>
+
+    <section class="view" id="leasing"><div class="view-head"><div><p class="kicker">LEASING &amp; TENANCIES</p><h2>Place well. Start clean.</h2><p>Keep tenancy milestones attached to the correct home. Screening lives in its own file so consent is on record before any check.</p></div><button class="cta" data-create="leases">+ Add tenancy</button></div><div class="three-up"><article><b>SCREEN</b><h3>Application review</h3><p>Written consent first. No SIN. The landlord makes the decision.</p></article><article><b>PLACE</b><h3>Lease &amp; move-in</h3><p>Current RTB-1, deposits through the brokerage, and RTB-27 at move-in.</p></article><article><b>MANAGE</b><h3>Informed owners</h3><p>Keep lease dates, inspections, repairs and owner communications visible.</p></article></div><div class="record-list" id="leaseList"></div></section>
+
+    <section class="view" id="screening"><div class="view-head"><div><p class="kicker">APPLICANT SCREENING</p><h2>Same questions. Consent first.</h2><p>Each adult applicant gets one file. Landlord, employer, and credit checks stay blocked until the consent date is saved. Do not record a SIN, and do not record dates of birth for other occupants.</p></div><button class="cta" data-create="applicants">+ Add applicant</button></div><div class="record-list" id="applicantList"></div></section>
+
+    <section class="view" id="forms"><div class="view-head"><div><p class="kicker">FORMS LIBRARY</p><h2>Official downloads + your rebuilt toolkit.</h2><p>Current RTB and BCFSA PDFs are in this desk. Your Rent with Robyn Word/Markdown forms replace the old Dropbox set. Owner marketing starts with <a href="/guides/landlord-guide.pdf" target="_blank" rel="noreferrer">The Property Owner's Guide</a>.</p></div><button class="cta" id="newPlacement">+ Placement file</button></div><div class="resource-strip"><a href="https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies/forms" target="_blank" rel="noreferrer">Current RTB forms <span>↗</span></a><a href="https://www.bcfsa.ca/industry-resources/real-estate-professional-resources" target="_blank" rel="noreferrer">Current BCFSA forms <span>↗</span></a><a href="mailto:robyn@rentwithrobyn.ca">File questions to robyn@rentwithrobyn.ca <span>↗</span></a></div><div id="library"></div><div class="view-head subhead"><div><p class="kicker">PLACEMENT FILES</p><h2>The transaction record, as a checklist.</h2><p>Same documents the Stonehaus transaction record sheet asks for on every file.</p></div></div><div id="placementList"></div><div class="view-head subhead"><div><p class="kicker">TRACKED COPIES</p><h2>What is out, signed, and stored.</h2></div><button class="quiet" data-create="documents">+ Track a form</button></div><div class="record-list" id="formList"></div></section>
+
+    <section class="view" id="tasks"><div class="view-head"><div><p class="kicker">TASKS &amp; MAINTENANCE</p><h2>Close the loop.</h2><p>Owner promises, tenant requests, inspections and repairs all have a next step.</p></div><button class="cta" data-create="tasks">+ Add task</button></div><div class="record-list" id="taskList"></div></section>
   </main>
-  <dialog id="formDialog"><form id="recordForm"><div class="modal-head"><h2 id="formTitle">Add lead</h2><button type="button" class="close" id="closeDialog">×</button></div><div id="formFields" class="form-grid"></div><div class="modal-actions"><button type="button" id="cancelDialog">Cancel</button><button class="primary" type="submit">Save record</button></div></form></dialog>
+  <dialog id="editor"><form id="editorForm"><div class="modal-top"><div><p class="kicker" id="modalKicker">NEW RECORD</p><h2 id="modalTitle">Add record</h2></div><button class="icon-button" type="button" id="closeModal" aria-label="Close">×</button></div><div id="modalFields" class="form-grid"></div><div class="modal-actions"><button class="quiet" type="button" id="cancelModal">Cancel</button><button class="cta" type="submit">Save</button></div></form></dialog>
   <script src="/app.js"></script>
 </body>
 </html>

@@ -1,3 +1,6 @@
 data/crm.json
+data/fb-profile/
+data/landlord-guide-preview/
+node_modules/
 npm-debug.log*
 .DS_Store
