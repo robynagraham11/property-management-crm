@@ -14,6 +14,29 @@ npm start
 
 Open `http://localhost:3000`. The first run creates `data/crm.json` with two example leads. All records are persisted locally in that file.
 
+## Shareable link (live on the internet)
+
+GitHub only stores the code. For a link you can open on your phone or send to owners, deploy on **Render** (free tier):
+
+1. Sign up at [render.com](https://render.com) and connect GitHub account **robynagraham11**.
+2. **Dashboard → New → Blueprint**.
+3. Choose repo **property-management-crm** (this project).
+4. Approve the blueprint (uses `render.yaml` in the repo). Deploy.
+5. When the deploy finishes, Render shows a URL like `https://property-management-desk.onrender.com` — that is your live desk.
+
+**Share these paths on the live URL:**
+
+| Page | Path |
+|------|------|
+| Desk | `/` |
+| Owner intake | `/intake.html` |
+| Forms portal | `/portal.html` |
+| Owner's Guide PDF | `/guides/landlord-guide.pdf` |
+
+**Important before client data:** The free host has no login yet. Anyone with the URL could see the desk until you add a password or keep the link private. CRM data on Render lives in `data/crm.json` on the server — back it up; free instances can spin down when idle (first load may take ~30 seconds).
+
+Code repo (not the app): https://github.com/robynagraham11/property-management-crm
+
 ## What is included
 
 - A lead pipeline: new, contacted, qualified, proposal, appointed, and closed.

@@ -1,0 +1,12 @@
+# In Render: Dashboard → New → Blueprint → select repo property-management-crm
+services:
+  - type: web
+    name: property-management-desk
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: 22.12.0

@@ -80,9 +80,16 @@ function serveFile(res, requestedPath) {
     const types = { ".html": "text/html", ".css": "text/css", ".js": "application/javascript", ".png": "image/png", ".md": "text/markdown", ".pdf": "application/pdf", ".docx": "application/vnd.openxmlformats-officedocument.wordprocessingml.document" };
     return send(res, 200, fs.readFileSync(filePath), types[path.extname(filePath)] || "text/plain");
   }
-  const fileName = requestedPath === "/" ? "index.html" : requestedPath === "/logo.png" ? "9a3a0b6c-02a5-4786-ad21-e4a6f1db135c (1).png" : decodeURIComponent(requestedPath.slice(1));
-  const filePath = path.resolve(root, "public", fileName);
-  if (!filePath.startsWith(path.join(root, "public")) || !fs.existsSync(filePath)) return send(res, 404, { error: "Not found" });
+  let fileName = requestedPath === "/" ? "index.html" : requestedPath === "/logo.png" ? "9a3a0b6c-02a5-4786-ad21-e4a6f1db135c (1).png" : decodeURIComponent(requestedPath.slice(1));
+  if (fileName.endsWith("/")) fileName = `${fileName}index.html`;
+  let filePath = path.resolve(root, "public", fileName);
+  if (!filePath.startsWith(path.join(root, "public"))) return send(res, 404, { error: "Not found" });
+  if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) {
+    const indexPath = path.join(filePath, "index.html");
+    if (fs.existsSync(indexPath)) filePath = indexPath;
+    else return send(res, 404, { error: "Not found" });
+  }
+  if (!fs.existsSync(filePath)) return send(res, 404, { error: "Not found" });
   const types = { ".html": "text/html", ".css": "text/css", ".js": "application/javascript", ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".svg": "image/svg+xml", ".webp": "image/webp", ".md": "text/markdown", ".pdf": "application/pdf" };
   send(res, 200, fs.readFileSync(filePath), types[path.extname(filePath)] || "text/plain");
 }
@@ -146,5 +153,8 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-if (require.main === module) server.listen(port, () => console.log(`Property CRM running at http://localhost:${port}`));
+if (require.main === module) {
+  const host = process.env.HOST || "0.0.0.0";
+  server.listen(port, host, () => console.log(`Property CRM running at http://${host}:${port}`));
+}
 module.exports = { server, seedData };
