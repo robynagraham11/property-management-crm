@@ -16,13 +16,11 @@ Open `http://localhost:3000`. The first run creates `data/crm.json` with two exa
 
 ## Shareable link (live on the internet)
 
-GitHub only stores the code. For a link you can open on your phone or send to owners, deploy on **Render** (free tier):
+**One-click deploy:** [Deploy to Render](https://render.com/deploy?repo=https://github.com/robynagraham11/property-management-crm) → sign in with GitHub → **Apply**.
 
-1. Sign up at [render.com](https://render.com) and connect GitHub account **robynagraham11**.
-2. **Dashboard → New → Blueprint**.
-3. Choose repo **property-management-crm** (this project).
-4. Approve the blueprint (uses `render.yaml` in the repo). Deploy.
-5. When the deploy finishes, Render shows a URL like `https://property-management-desk.onrender.com` — that is your live desk.
+Full walkthrough: [`docs/SETUP-RENDER.md`](docs/SETUP-RENDER.md)
+
+When deploy is **Live**, your URL looks like `https://property-management-desk.onrender.com`.
 
 **Share these paths on the live URL:**
 
