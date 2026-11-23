@@ -31,6 +31,7 @@ A complete, plain-language document toolkit + one-page portal so a new property 
 
 ## Hosting & sharing the portal
 
+- **In the Property Management Desk:** this toolkit is wired into your app — the sidebar and Forms library link to `/toolkit/portal.html`, and every document is downloadable from the desk's Forms library (`forms-manifest.json` lists them under "Rent with Robyn — rebuilt in toolkit"). `/portal.html` redirects to the portal for old links.
 - **Just share it:** zip this whole folder and send it. The recipient unzips and double-clicks `portal.html`.
 - **Share a link:** drag the folder to Netlify Drop (app.netlify.com/drop) or push to GitHub Pages. Keep `portal.html`, the `.md` files, and `assets/` together in the same folder.
 - **Offline:** the page itself needs no server. Fonts load from Google Fonts when online; system fonts are used as fallback offline.
