@@ -79,6 +79,13 @@
       "title": "Rent with Robyn — rebuilt in toolkit",
       "items": [
         {
+          "title": "Compliance Foundation",
+          "stamp": "use",
+          "summary": "Licensing, Langley business licences, trust accounts, insurance and the go/no-go test. Read before anything else.",
+          "file": "/toolkit/00-compliance-foundation.md",
+          "when": "Before any client work"
+        },
+        {
           "title": "Property Management Agreement",
           "stamp": "use",
           "summary": "Stonehaus brokerage agreement with three service models. Replaces LANG/SH legacy PDFs.",
@@ -89,15 +96,37 @@
         {
           "title": "Tenant Placement Service Agreement",
           "stamp": "use",
-          "summary": "Placement-only scope and fee.",
+          "summary": "Placement-only scope and fee (50% of one month's rent, $1,000 minimum, earned on signing). Includes managing-broker sign-off list.",
           "file": "/toolkit/02-tenant-placement-agreement.md",
           "docx": "/toolkit/02-tenant-placement-agreement.docx",
           "when": "Leasing / placement only"
         },
         {
+          "title": "Disclosures & Statutory Forms Guide",
+          "stamp": "use",
+          "summary": "Every required disclosure and RTB/BCFSA form with when it is required and who signs. Form numbers verified against the RTB list (Sept 2026).",
+          "file": "/toolkit/03-disclosures-and-statutory-forms.md",
+          "when": "Reference for every file"
+        },
+        {
+          "title": "Industry Research",
+          "stamp": "use",
+          "summary": "What competing BC property managers use — documents, service models, fee benchmarks.",
+          "file": "/toolkit/04-industry-research.md",
+          "when": "Background reading"
+        },
+        {
+          "title": "Property Information & Authorization",
+          "stamp": "use",
+          "summary": "Owner intake form — property facts, strata details, rental terms, showings and marketing authorizations. Placement package Document 2.",
+          "file": "/toolkit/05-property-information-and-authorization.md",
+          "docx": "/toolkit/05-property-information-and-authorization.docx",
+          "when": "After the discovery call, before the agreement"
+        },
+        {
           "title": "Rental Application",
           "stamp": "use",
-          "summary": "No application fee. No SIN field. Replaces the North Vancouver legacy application.",
+          "summary": "No application fee. No SIN field. Replaces the North Vancouver legacy application. Placement package Document 3.",
           "file": "/toolkit/06-tenant-rental-application.md",
           "docx": "/toolkit/06-tenant-rental-application.docx",
           "when": "Each adult applicant"
@@ -105,6 +134,7 @@
         {
           "title": "Screening Consent (PIPA)",
           "stamp": "use",
+          "summary": "Signed before any reference, employment, or credit check. Placement package Document 4.",
           "file": "/toolkit/07-screening-consent.md",
           "docx": "/toolkit/07-screening-consent.docx",
           "when": "Before any reference, employment, or credit check"
@@ -112,16 +142,58 @@
         {
           "title": "Tenant Approval Record",
           "stamp": "use",
+          "summary": "Landlord's written approval before the RTB-1 is prepared. Placement package Document 5.",
           "file": "/toolkit/08-tenant-approval-record.md",
           "docx": "/toolkit/08-tenant-approval-record.docx",
           "when": "Landlord chooses applicant — before RTB-1"
         },
         {
+          "title": "Placement Completion & Handover Checklist",
+          "stamp": "use",
+          "summary": "Closes the file: money, keys, copies handed over, landlord's responsibilities from move-in. Placement package Document 6.",
+          "file": "/toolkit/09-placement-completion-handover-checklist.md",
+          "docx": "/toolkit/09-placement-completion-handover-checklist.docx",
+          "when": "At every placement close-out"
+        },
+        {
+          "title": "Pre-Authorized Debit (PAD) Agreement",
+          "stamp": "use",
+          "summary": "Optional automatic rent payments with cancellation rights under Payments Canada rules. Attach a void cheque.",
+          "file": "/toolkit/10-pre-authorized-debit-agreement.md",
+          "docx": "/toolkit/10-pre-authorized-debit-agreement.docx",
+          "when": "At move-in, if the tenant chooses automatic payments"
+        },
+        {
+          "title": "Monthly Owner Statement",
+          "stamp": "use",
+          "summary": "Itemized monthly report: rent, fees, disbursements, tenant deposits held in trust, GST and net remittance. Reconciles with the brokerage trust account.",
+          "file": "/toolkit/11-monthly-owner-statement.md",
+          "docx": "/toolkit/11-monthly-owner-statement.docx",
+          "when": "Every month, per managed property"
+        },
+        {
+          "title": "Strata Document Request",
+          "stamp": "use",
+          "summary": "Letter to request Form B, bylaws, rental restrictions and the move-in process before advertising a strata unit.",
+          "file": "/toolkit/12-strata-document-request.md",
+          "docx": "/toolkit/12-strata-document-request.docx",
+          "when": "Onboarding any strata rental unit"
+        },
+        {
           "title": "Placement file checklist",
           "stamp": "use",
+          "summary": "Internal run sheet — the working order of the whole placement package. Replaces transaction record chaos.",
           "file": "/toolkit/13-placement-file-checklist.md",
           "docx": "/toolkit/13-placement-file-checklist.docx",
-          "when": "Internal run sheet — replaces transaction record chaos"
+          "when": "Internal run sheet — every placement file"
+        },
+        {
+          "title": "Tenant Placement — How It Works (client one-pager)",
+          "stamp": "use",
+          "summary": "Owner-facing explainer: services, 8-step process, what gets signed and the fee.",
+          "file": "/toolkit/14-tenant-placement-one-pager.md",
+          "docx": "/toolkit/14-tenant-placement-one-pager.docx",
+          "when": "After the discovery call or with marketing"
         },
         {
           "title": "Transaction Record Sheet",
